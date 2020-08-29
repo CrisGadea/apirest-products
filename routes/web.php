@@ -20,7 +20,6 @@ Route::get('api/product','ProductController@search');
 Route::get('api/product','ProductController@index');
 Route::get('api/product/{id}','ProductController@show');
 Route::get('api/product/slug/{slug}','ProductController@getProductBySlug');
-Route::get('api/product/search/{search}','ProductController@getProductBySearch');
 Route::post ('api/product/store','ProductController@store');
 
 // Variant routes

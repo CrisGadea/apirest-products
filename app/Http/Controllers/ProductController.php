@@ -79,31 +79,6 @@ class ProductController extends Controller
     }
 
     /**
-     * @param $id
-     * @return \Illuminate\Http\JsonResponse
-     * show method returns the product searched
-     */
-    public function getProductBySearch($search)
-    {
-        $product = Product::find($search)->load('category');
-
-        if (is_object($product)){
-            $data = [
-                'code' => 200,
-                'status' => 'Success',
-                'product' => $product
-            ];
-        }else{
-            $data = [
-                'code' => 404,
-                'status' => 'Error',
-                'message' => 'This product does not exists'
-            ];
-        }
-        return response()->json($data, $data['code']);
-    }
-
-    /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * Guarda un producto nuevo
