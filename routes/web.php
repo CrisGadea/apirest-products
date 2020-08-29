@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Product routes
+Route::get('api/product','ProductController@search');
+Route::get('api/product','ProductController@index');
+Route::get('api/product/{id}','ProductController@show');
+Route::get('api/product/slug/{slug}','ProductController@getProductBySlug');
+Route::post ('api/product/store','PostController@store');
+
+// Variant routes
+Route::get('api/variant/{product_id}','VariantController@getVariantsOfProduct');
+
+// Category routes
