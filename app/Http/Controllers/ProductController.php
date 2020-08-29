@@ -16,9 +16,9 @@ class ProductController extends Controller
     public function index()
     {
         // Para cargar la categoría y que no la muestre como número
-        //$products = Product::limit(2)->paginate();
-        //$products = Product::take(2)->get()->paginate();
         $products = Product::all()->load('category');
+        // Cargar paginado
+        //$products = Product::limit(2)->paginate();
 
         return response()->json([
            'code' => 200,
