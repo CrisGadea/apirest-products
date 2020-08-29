@@ -25,5 +25,3 @@ Route::post ('api/product/store','ProductController@store');
 
 // Variant routes
 Route::get('api/variant/{product_id}','VariantController@getVariantsOfProduct');
-
-// Category routes

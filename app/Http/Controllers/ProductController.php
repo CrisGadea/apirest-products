@@ -16,10 +16,9 @@ class ProductController extends Controller
     public function index()
     {
         // Para cargar la categoría y que no la muestre como número
-        //$products = Product::orderBy('id', 'DESC')->paginate();
-        $products = Product::limit(2)->paginate();
+        //$products = Product::limit(2)->paginate();
         //$products = Product::take(2)->get()->paginate();
-        //$products = Product::all()->load('category');
+        $products = Product::all()->load('category');
 
         return response()->json([
            'code' => 200,
@@ -61,7 +60,7 @@ class ProductController extends Controller
      */
     public function getProductBySlug($slug)
     {
-        $product = Product::find($slug)->load('category');
+        $product = Product::where('slug','=', $slug)->get()->load('Category');
 
         if (is_object($product)){
             $data = [

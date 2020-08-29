@@ -16,7 +16,7 @@ class VariantController extends Controller
      */
     public function getVariantsOfProduct($product_id)
     {
-        $variant = Variant::where('product_id', $product_id);
+        $variant = Variant::where('product_id','=', $product_id)->get()->load('Product');
 
         if (is_object($variant)){
             $data = [
